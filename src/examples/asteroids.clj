@@ -3,6 +3,11 @@
    [clojure.string :as string]
    [raylib-clj.core :as rl]))
 
+;; CREDITS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; All the math and helper functions for this asteroids impl are from
+;; @cellularmitosis (Jason Pepas)
+;; https://github.com/tantona/janetroids/blob/master/main.janet
+
 (defmacro with-drawing
   [& body]
   `(do
