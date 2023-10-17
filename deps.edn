@@ -1,0 +1,27 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+      cnuernber/dtype-next {:mvn/version "10.002"}
+                 ;[net.java.dev.jna/jna "5.13.0"]
+                 org.suskalo/coffi { :mvn/version "0.6.409"}
+                 camel-snake-kebab { :mvn/version "0.4.3"}
+
+                                     nrepl/nrepl                   {:mvn/version "1.0.0"}
+                              cider/cider-nrepl             {:mvn/version "0.38.1"}
+                              djblue/portal                 {:mvn/version "0.48.0"}
+                              integrant/repl                {:mvn/version "0.3.3"}
+                              refactor-nrepl/refactor-nrepl {:mvn/version "3.9.0"} }
+ :jvm-opts ["-Dclojure.compiler.direct-linking=true"
+             "--enable-preview"
+             ;"--add-modules=jdk.incubator.foreign"
+             "--enable-native-access=ALL-UNNAMED"
+             "-Dforeign.restricted=permit"
+             "--add-opens" "java.base/java.lang=ALL-UNNAMED"
+             ]
+
+ :aliases {:dev {:extra-deps {}
+                 ;; :main-opts ["dev.clj"]
+                 }
+           :prod {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.4"}
+                               leiningen/leiningen {:mvn/version "2.9.0"}}
+                  :main-opts ["prod.clj"]}
+           :macos {:jvm-opts ["-XstartOnFirstThread"]}}}
